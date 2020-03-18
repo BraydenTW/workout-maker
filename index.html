@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Pyramid Power Workout Maker</title>
+    <link rel="stylesheet" href="./css/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+</head>
+<body>
+    <div class="main-title">Pyramid Power Maker</div>
+    <div class="presets">
+        <div class="presets-slide">
+            <div class="presets-title">
+                Workout Time (seconds)
+            </div>
+            <div class="presets-input">
+                <input class="number-input workout-time-amount" type="text" placeholder="30-60" maxlength="2">
+                <button class="next-button workout-time-btn"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+        <div class="presets-slide">
+            <div class="presets-title">
+                Rest Time (seconds)
+            </div>
+            <div class="presets-input">
+                <input class="number-input rest-time-amount" type="text" placeholder="15-30" maxlength="2">
+                <button class="next-button rest-time-btn"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+        <div class="presets-slide">
+            <div class="presets-title">
+                Amount of Exercises
+            </div>
+            <div class="presets-input">
+                <input class="number-input exercise-amount" type="text" placeholder="5-10" maxlength="2">
+                <button class="next-button submit-amount"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+        <div class="presets-slide last-slide">
+            <div class="presets-title">
+                Workout Plan
+            </div>
+            <div class="presets-input">
+                
+            </div>
+        </div>
+    </div>
+    <div class="workout-section">
+        <div class="workout-group">
+            <div class="current-title">
+                Jumping Jacks
+            </div>
+            <div class="current-time">
+                30s
+            </div>
+        </div>
+    </div>
+    <script src="./js/presets.js"></script>
+</body>
+</html>
