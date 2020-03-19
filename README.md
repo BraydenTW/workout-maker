@@ -24,4 +24,4 @@ And so on...
 
 You input the time for each workout, the rest time between sets, and each exercise you plan to do. Once you click 'Start', the interval timer will show up on the screen with each exercise once you get further into the workout.
 
-Check it out at <a href="pyramidpower.epizy.com">pyramidpower.epizy.com</a>
+Check it out at <a href="http://pyramidpower.epizy.com/">pyramidpower.epizy.com</a>
