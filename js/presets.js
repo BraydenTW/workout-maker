@@ -21,27 +21,30 @@ function submitWorkouts() {
 
         }
     });
-    checkCount === parseInt(exerciseLength) ? document.querySelector(".presets").style.display = "none" : alert("Please fill out all the workouts");
-    console.log(`workoutTime = ${workoutTime}, \n restTime = ${restTime} \n #ofExercises = ${exerciseLength} \n workouts = ${workoutList}`);
 
-    checkCount === parseInt(exerciseLength) ? document.querySelector(".workout-section").style.display = "block" : "";
+    if (checkCount === parseInt(exerciseLength)) {
+        document.querySelector(".presets").style.display = "none";
+        document.querySelector(".workout-section").style.display = "block";
+        setupSequence();
+        startWorkout();
+    } else {
+        alert("Please fill out all the workouts");
+    }
 }
 
 
 document.querySelectorAll(".next-button").forEach(item => {
     item.addEventListener("click", () => {
         document.querySelectorAll(".presets-slide")[presetSlideIndex].style.display = "none";
-        console.log(presetSlideIndex);
         increaseSlide ? presetSlideIndex++ : "";
         document.querySelectorAll(".presets-slide")[presetSlideIndex].style.display = "block";
-        console.log(presetSlideIndex);
     });
 });
 
 document.querySelector(".workout-time-btn").addEventListener("click", () => {
     workoutTime = document.querySelector(".workout-time-amount").value;
     workoutTime = parseInt(workoutTime);
-    if (workoutTime < 30 || workoutTime > 60) {
+    if (workoutTime < 1 || workoutTime > 60) {
         alert("Enter a between 30 and 60");
         document.querySelectorAll(".presets-slide")[0].style.display = "block";
         document.querySelectorAll(".presets-slide")[1].style.display = "none";
@@ -63,7 +66,7 @@ document.querySelector(".workout-time-btn").addEventListener("click", () => {
 document.querySelector(".rest-time-btn").addEventListener("click", () => {
     restTime = document.querySelector(".rest-time-amount").value;
     restTime = parseInt(restTime);
-    if (restTime < 15 || restTime > 30) {
+    if (restTime < 1 || restTime > 30) {
         alert("Enter a between 15 and 30");
         document.querySelectorAll(".presets-slide")[1].style.display = "block";
         document.querySelectorAll(".presets-slide")[2].style.display = "none";
