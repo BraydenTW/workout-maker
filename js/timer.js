@@ -11,6 +11,16 @@ let workoutSequence = [];
 
 let currentWorkoutIndex = 0;
 
+const TIMER_SOUND = document.querySelector(".timer-alert");
+
+function playAlarmSound() {
+    TIMER_SOUND.play();
+    setTimeout(() => {
+        TIMER_SOUND.pause();
+        TIMER_SOUND.currentTime = 0;
+    }, 1000);
+}
+
 function setupSequence() {
     // Sequence
     // Going up pyramid
@@ -57,6 +67,7 @@ function startWorkout() {
         countdown--;
         document.querySelector(".current-time").innerHTML = countdown;
         if (countdown === 0) {
+            playAlarmSound();
             setTimeout(() => {
                 clearInterval(timeInterval);
                 if (currentWorkoutIndex === workoutSequence.length) {
