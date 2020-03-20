@@ -10,7 +10,6 @@ let increaseSlide = true;
 
 const INPUT_EXERCISES = document.querySelectorAll(".presets-input")[3];
 
-
 function submitWorkouts() {
     let checkCount = 0;
     document.querySelectorAll(".workout-input").forEach((item, index) => {
@@ -32,19 +31,29 @@ function submitWorkouts() {
     }
 }
 
+document.querySelectorAll(".number-input").forEach(item => {
+    item.addEventListener("keydown", e => {
+        if (e.keyCode === 13) {
+            document.querySelectorAll(".next-button")[presetSlideIndex].click();
+        }
+    });
+})
 
 document.querySelectorAll(".next-button").forEach(item => {
     item.addEventListener("click", () => {
         document.querySelectorAll(".presets-slide")[presetSlideIndex].style.display = "none";
         increaseSlide ? presetSlideIndex++ : "";
         document.querySelectorAll(".presets-slide")[presetSlideIndex].style.display = "block";
+        document.querySelectorAll(".presets input")[presetSlideIndex].focus();
     });
 });
+
+
 
 document.querySelector(".workout-time-btn").addEventListener("click", () => {
     workoutTime = document.querySelector(".workout-time-amount").value;
     workoutTime = parseInt(workoutTime);
-    if (workoutTime < 1 || workoutTime > 60) {
+    if (workoutTime < 30 || workoutTime > 60) {
         alert("Enter a between 30 and 60");
         document.querySelectorAll(".presets-slide")[0].style.display = "block";
         document.querySelectorAll(".presets-slide")[1].style.display = "none";
@@ -66,7 +75,7 @@ document.querySelector(".workout-time-btn").addEventListener("click", () => {
 document.querySelector(".rest-time-btn").addEventListener("click", () => {
     restTime = document.querySelector(".rest-time-amount").value;
     restTime = parseInt(restTime);
-    if (restTime < 1 || restTime > 30) {
+    if (restTime < 15 || restTime > 30) {
         alert("Enter a between 15 and 30");
         document.querySelectorAll(".presets-slide")[1].style.display = "block";
         document.querySelectorAll(".presets-slide")[2].style.display = "none";
@@ -116,5 +125,18 @@ document.querySelector(".submit-amount").addEventListener("click", () => {
         document.querySelectorAll(".presets-slide")[2].style.display = "none";
         document.querySelectorAll(".presets-slide")[3].style.display = "block";
         increaseSlide = true;
+        document.querySelectorAll(".workout-input")[0].focus();
+        document.querySelectorAll(".workout-input").forEach((item, index) => {
+            item.addEventListener("keydown", e => {
+                if (e.keyCode === 13) {
+                    document.querySelectorAll(".workout-input")[index + 1].focus();
+                }
+            });
+        });
+        document.querySelectorAll(".workout-input")[document.querySelectorAll(".workout-input").length - 1].addEventListener("keydown", e => {
+            if (e.keyCode === 13) {
+                submitWorkouts();
+            }
+        });
     }
 });
