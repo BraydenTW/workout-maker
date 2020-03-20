@@ -33,11 +33,18 @@ function setupSequence() {
         workoutSequence.push("Rest");
     }
     let reverseSequence = [];
+    workoutSequence.pop();
+    workoutList = workoutList.reverse();
     for (let i = 0; i < exerciseLength; i++) { // Each Set
+        let tempList = [];
         workoutList.forEach((item, index) => { // Each workout per set
             if (index <= i) {
-                reverseSequence.push(item);
+                tempList.push(item);
             }
+        });
+        tempList = tempList.reverse(); // Change reverse
+        tempList.forEach(item => {
+            reverseSequence.push(item);
         });
         reverseSequence.push("Rest");
     }
