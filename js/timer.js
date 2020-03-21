@@ -13,18 +13,18 @@ let readyTime = 10000;
 
 let currentWorkoutIndex = 0;
 
-const TIMER_SOUND = document.querySelector(".timer-alert");
+const TIMER_SOUND = document.createElement("AUDIO");
+TIMER_SOUND.setAttribute("class", "timer-alert");
+TIMER_SOUND.setAttribute("src", "../audio/timerDone.mp3");
+document.body.appendChild(TIMER_SOUND);
 
-window.sounds = new Object();
-let timerAlert = new Audio('../audio/timerDone.mp3');
-timerAlert.load();
-window.sounds['timerDone.mp3'] = timerAlert;
 
 document.querySelector(".hidden-boi").addEventListener("click", () => {
-    timerAlert.play();
+    document.querySelector(".timer-alert").load();
+    document.querySelector(".timer-alert").play();
     setTimeout(() => {
-        timerAlert.pause();
-        timerAlert.currentTime = 0;
+        document.querySelector(".timer-alert").pause();
+        document.querySelector(".timer-alert").currentTime = 0;
     }, 1000);
 });
 
