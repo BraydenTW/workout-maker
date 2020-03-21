@@ -9,6 +9,8 @@ let countdown;
 
 let workoutSequence = [];
 
+let readyTime = 10000;
+
 let currentWorkoutIndex = 0;
 
 const TIMER_SOUND = document.querySelector(".timer-alert");
@@ -53,36 +55,62 @@ function setupSequence() {
 }
 
 function startWorkout() {
-
-    // Update page
-
-    if (currentWorkoutIndex === workoutSequence.length) {
-        document.querySelector(".workout-section").style.display = "none";
-    }
-
-    document.querySelector(".current-title").textContent = workoutSequence[currentWorkoutIndex];
-    console.log(document.querySelector(".current-title").textContent);
-    if (document.querySelector(".current-title").textContent === "Rest") {
-        countdown = restTime;
-        console.log("rest");
+    // console.log(workoutSequence[currentWorkoutIndex]);
+    if (currentWorkoutIndex != 0 && workoutSequence[currentWorkoutIndex] != "Rest") {
+        console.log(currentWorkoutIndex)
+        console.log(workoutSequence[currentWorkoutIndex])
+        document.querySelector(".current-title").innerHTML = "Get ready <br> for " + workoutSequence[currentWorkoutIndex];
+        document.querySelector(".current-time").textContent = "5";
+        setTimeout(() => {
+            document.querySelector(".current-time").textContent = "4";
+        }, 1000);
+        setTimeout(() => {
+            document.querySelector(".current-time").textContent = "3";
+        }, 2000);
+        setTimeout(() => {
+            document.querySelector(".current-time").textContent = "2";
+        }, 3000);
+        setTimeout(() => {
+            document.querySelector(".current-time").textContent = "1";
+        }, 4000);
+        setTimeout(() => {
+            document.querySelector(".current-time").textContent = "0";
+        }, 5000);
+        playAlarmSound();
     } else {
-        countdown = workoutTime;
+        readyTime = 0;
+        playAlarmSound();
     }
-    document.querySelector(".current-time").innerHTML = countdown;
-    timeInterval = setInterval(() => {
-        document.querySelector(".current-time").innerHTML = countdown;
-        countdown--;
-        document.querySelector(".current-time").innerHTML = countdown;
-        if (countdown === 0) {
-            playAlarmSound();
-            setTimeout(() => {
-                clearInterval(timeInterval);
-                if (currentWorkoutIndex === workoutSequence.length) {
-                } else {
-                    currentWorkoutIndex++;
-                    startWorkout();
-                }
-            }, 999);
+    // Update page
+    setTimeout(() => {
+        if (currentWorkoutIndex === workoutSequence.length) {
+            document.querySelector(".workout-section").style.display = "none";
         }
-    }, 1000);
+    
+        document.querySelector(".current-title").textContent = workoutSequence[currentWorkoutIndex];
+        // console.log(document.querySelector(".current-title").textContent);
+        if (document.querySelector(".current-title").textContent === "Rest") {
+            countdown = restTime;
+            // console.log("rest");
+        } else {
+            countdown = workoutTime;
+        }
+        document.querySelector(".current-time").innerHTML = countdown;
+        timeInterval = setInterval(() => {
+            document.querySelector(".current-time").innerHTML = countdown;
+            countdown--;
+            document.querySelector(".current-time").innerHTML = countdown;
+            if (countdown === 0) {
+                setTimeout(() => {
+                    clearInterval(timeInterval);
+                    if (currentWorkoutIndex === workoutSequence.length) {
+                    } else {
+                        currentWorkoutIndex++;
+                        readyTime = 6000;
+                        startWorkout();
+                    }
+                }, 999);
+            }
+        }, 1000);
+    }, readyTime);
 }

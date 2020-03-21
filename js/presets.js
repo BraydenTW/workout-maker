@@ -16,16 +16,50 @@ function submitWorkouts() {
         if (item.value != "") {
             checkCount++;
             workoutList.push(item.value);
-        } else {
-
         }
     });
 
     if (checkCount === parseInt(exerciseLength)) {
         document.querySelector(".presets").style.display = "none";
         document.querySelector(".workout-section").style.display = "block";
-        setupSequence();
-        startWorkout();
+        
+        document.querySelector(".current-title").innerHTML = "Get ready <br> for " + workoutList[0];
+        document.querySelector(".current-time").textContent = "10";
+        setTimeout(() => {
+            document.querySelector(".current-time").textContent = "9";
+        }, 1000);
+        setTimeout(() => {
+            document.querySelector(".current-time").textContent = "8";
+        }, 2000);
+        setTimeout(() => {
+            document.querySelector(".current-time").textContent = "7";
+        }, 3000);
+        setTimeout(() => {
+            document.querySelector(".current-time").textContent = "6";
+        }, 4000);
+        setTimeout(() => {
+            document.querySelector(".current-time").textContent = "5";
+        }, 5000);
+        setTimeout(() => {
+            document.querySelector(".current-time").textContent = "4";
+        }, 6000);
+        setTimeout(() => {
+            document.querySelector(".current-time").textContent = "3";
+        }, 7000);
+        setTimeout(() => {
+            document.querySelector(".current-time").textContent = "2";
+        }, 8000);
+        setTimeout(() => {
+            document.querySelector(".current-time").textContent = "1";
+        }, 9000);
+        setTimeout(() => {
+            document.querySelector(".current-time").textContent = "0";
+            playAlarmSound();
+        }, 10000);
+        setTimeout(() => {
+            setupSequence();
+            startWorkout();
+        }, 11000);
     } else {
         alert("Please fill out all the workouts");
     }
@@ -53,7 +87,7 @@ document.querySelectorAll(".next-button").forEach(item => {
 document.querySelector(".workout-time-btn").addEventListener("click", () => {
     workoutTime = document.querySelector(".workout-time-amount").value;
     workoutTime = parseInt(workoutTime);
-    if (workoutTime < 30 || workoutTime > 60) {
+    if (workoutTime < 1 || workoutTime > 60) {
         console.log(parseInt(workoutTime));
         alert("Enter a between 30 and 60");
         document.querySelectorAll(".presets-slide")[0].style.display = "block";
@@ -83,7 +117,7 @@ document.querySelector(".workout-time-btn").addEventListener("click", () => {
 document.querySelector(".rest-time-btn").addEventListener("click", () => {
     restTime = document.querySelector(".rest-time-amount").value;
     restTime = parseInt(restTime);
-    if (restTime < 15 || restTime > 30) {
+    if (restTime < 1 || restTime > 30) {
         alert("Enter a between 15 and 30");
         document.querySelectorAll(".presets-slide")[1].style.display = "block";
         document.querySelectorAll(".presets-slide")[2].style.display = "none";
@@ -142,6 +176,7 @@ document.querySelector(".submit-amount").addEventListener("click", () => {
         increaseSlide = true;
         document.querySelectorAll(".workout-input")[0].focus();
         document.querySelectorAll(".workout-input").forEach((item, index) => {
+            if (index != document.querySelectorAll(".workout-input").length - 1)
             item.addEventListener("keydown", e => {
                 if (e.keyCode === 13) {
                     document.querySelectorAll(".workout-input")[index + 1].focus();
