@@ -162,18 +162,19 @@ button:hover {
   width: 100%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-  line-height: 8em;
+  line-height: 4em;
 }
 
 .current-title {
-  font-size: 3em;
+  font-size: 2.5em;
   width: 100%;
-  font-weight: 700;
+  font-weight: 300;
 }
 
 .current-time {
-  font-size: 5em;
+  font-size: 7em;
   font-weight: 900;
+  padding: 50px 0px;
 }
 
 @media only screen and (max-width: 450px) {
