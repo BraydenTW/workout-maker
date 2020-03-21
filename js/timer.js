@@ -16,10 +16,14 @@ let currentWorkoutIndex = 0;
 const TIMER_SOUND = document.querySelector(".timer-alert");
 
 function playAlarmSound() {
-    TIMER_SOUND.play();
+    window.sounds = new Object();
+    let timerAlert = new Audio('../audio/timerDone.mp3');
+    timerAlert.load();
+    window.sounds['timerDone.mp3'] = timerAlert;
+    timerAlert.play();
     setTimeout(() => {
-        TIMER_SOUND.pause();
-        TIMER_SOUND.currentTime = 0;
+        timerAlert.pause();
+        timerAlert.currentTime = 0;
     }, 1000);
 }
 
