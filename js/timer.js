@@ -15,16 +15,21 @@ let currentWorkoutIndex = 0;
 
 const TIMER_SOUND = document.querySelector(".timer-alert");
 
-function playAlarmSound() {
-    window.sounds = new Object();
-    let timerAlert = new Audio('../audio/timerDone.mp3');
-    timerAlert.load();
-    window.sounds['timerDone.mp3'] = timerAlert;
+window.sounds = new Object();
+let timerAlert = new Audio('../audio/timerDone.mp3');
+timerAlert.load();
+window.sounds['timerDone.mp3'] = timerAlert;
+
+document.querySelector(".hidden-boi").addEventListener("click", () => {
     timerAlert.play();
     setTimeout(() => {
         timerAlert.pause();
         timerAlert.currentTime = 0;
     }, 1000);
+});
+
+function playAlarmSound() {
+    document.querySelector(".hidden-boi").click();
 }
 
 function setupSequence() {
