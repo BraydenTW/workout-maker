@@ -168,9 +168,8 @@ document.querySelector(".submit-amount").addEventListener("click", () => {
             INPUT_EXERCISES.appendChild(exerciseInput);
             INPUT_EXERCISES.appendChild(document.createElement("BR"));
         }
-        INPUT_EXERCISES.innerHTML += "<br><button class='submit-workouts' onclick='submitWorkouts()'>Start</button>";
-        let defaultTop = document.querySelector(".last-slide").style.top.substring(0, 3);
-        document.querySelector(".last-slide").style.top = ((exerciseLength - 5) * 30) + parseInt(defaultTop) + "px";
+        INPUT_EXERCISES.innerHTML += "<br><button class='submit-workouts' onclick='submitWorkouts()'><i class='fas fa-play'></i></button>";
+        document.querySelector(".last-slide").style.marginTop = ((exerciseLength - 5) * 30) + "px";
         document.querySelectorAll(".presets-slide")[2].style.display = "none";
         document.querySelectorAll(".presets-slide")[3].style.display = "block";
         increaseSlide = true;

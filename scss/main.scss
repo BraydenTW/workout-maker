@@ -1,57 +1,64 @@
 body{
-    font-family: "Roboto Mono";
+    font-family: "Rubik";
     width: 100vw;
     height: 100vh;
     margin: 0;
     padding: 0;
+    background: white;
 }
 
 input{
-    font-family: "Roboto Mono";
+    font-family: "Rubik";
     padding: 10px 5px;
 }
 
 button{
     font-size: 1.8em;
     padding: 10px 10px;
-    border: none;
-    background: dodgerblue;
-    color: white;
+    border: solid 3px black;
+    color: black;
     text-align: center;
-    text-shadow: 3px 3px 10px #0c4294;
-    background: linear-gradient(135deg, #74b9ff, #0984e3);
-    box-shadow: 8px 8px 20px #888;
-    margin: 0px 8px;
+    // text-shadow: 3px 3px 10px #0c4294;
+    background: white;
+    // background: linear-gradient(135deg, #888888, black);
+    // background: linear-gradient(135deg, #74b9ff, #0984e3);
+    box-shadow: inset 4px 4px #b073ff, 1px 1px white, 3px 3px #52ffcb, 4px 4px white, 6px 6px #58aeff, 6px 6px 10px #58aeff;
     cursor: pointer;
     transition: box-shadow 0.6s;
     outline: none;
     &:hover{
-        box-shadow: 0px 0px 20px #888;
+        box-shadow: none;
     }
 }
 
 .next-button{
     
-    width: 53px;
+    width: 58px;
     border-radius: 50%;
 }
 
 .submit-workouts{
-    font-family: "Roboto Mono";
-    border-radius: 50px;
+    font-size: 1.5em;
+    width: 63px;
+    text-align: center;
+    border-radius: 50%;
+}
+.submit-workouts{
+    font-family: "Rubik";
+    border-radius: 40px;
     padding: 8px 20px 10px;
 }
 
 .number-input{
     width: 120px;
     text-align: center;
-    border: none;
+    border: 3px black solid;
     border-radius: 40px;
     font-size: 1.8em;
     outline: none;
-    background: linear-gradient(135deg, #eee 50%, #aaa);
+    background: white;
     color: #666;
-    box-shadow: 8px 8px 20px #aaa;
+    box-shadow: inset 4px 4px #ffe134, 1px 1px white, 3px 3px #ff5252, 4px 4px white, 6px 6px #ff9b58, 6px 6px 10px #ff9b58;
     &::-webkit-outer-spin-button, &::-webkit-inner-spin-button{
         -webkit-appearance: none;
         margin: 0;
@@ -60,25 +67,34 @@ button{
         color: #aaa;
     }
     margin: 0px 8px;
+    
+    transition: box-shadow 0.6s;
+    &:hover{
+        box-shadow: none;
+    }
 }
 
 .text-input{
     width: 180px;
     text-align: left;
-    border: none;
+    border: solid 3px black;
     border-radius: 15px;
     font-size: 1.3em;
     outline: none;
     padding: 10px 20px;
-    background: linear-gradient(135deg, #fff 50%, #ccc);
+    background: white;
     color: #666;
-    box-shadow: 6px 6px 15px #ccc;
+    box-shadow: inset 4px 4px #ffe134, 1px 1px white, 3px 3px #ff5252, 4px 4px white, 6px 6px #ff9b58, 6px 6px 10px #ff9b58;
+    transition: box-shadow 0.6s;
     &::-webkit-outer-spin-button, &::-webkit-inner-spin-button{
         -webkit-appearance: none;
         margin: 0;
     }
     &::placeholder{
         color: #aaa;
+    }
+    &:hover{
+        box-shadow: 0;
     }
     margin: 8px 8px;
 }
@@ -90,6 +106,9 @@ button{
     left: 0;
     right: 0;
     overflow-y: scroll;
+    &::-webkit-scrollbar{
+        display: none;
+    }
 }
 
 .presets-slide{
@@ -97,7 +116,7 @@ button{
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 100%;
+    width: 420px;
     transform: translate(-50%, -50%);
     display: none;
     z-index: 1;
@@ -110,6 +129,9 @@ button{
     font-size: 2em;
     font-weight: 300;
     padding: 20px 0px;
+    font-family: "Rubik";
+    color: black;
+    // text-shadow: 1px 1px white, 3px 3px #ff5252, 4px 4px white, 6px 6px #ff9b58, 6px 6px 10px #ff9b58;
     width: 100%;
 }
 
@@ -136,8 +158,15 @@ button{
     padding: 50px 0px;
 }
 
+.last-slide{
+    margin: 0px 0px 50px;
+}
+
 @media only screen and (max-width: 450px) {
     .presets-title{
         padding: 30px 0px;
+    }
+    .presets-slide{
+        width: 80%;
     }
 }
