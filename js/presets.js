@@ -41,10 +41,10 @@ document.querySelectorAll(".number-input").forEach(item => {
 
 document.querySelectorAll(".next-button").forEach(item => {
     item.addEventListener("click", () => {
-        document.querySelectorAll(".presets-slide")[presetSlideIndex].style.display = "none";
-        increaseSlide ? presetSlideIndex++ : "";
-        document.querySelectorAll(".presets-slide")[presetSlideIndex].style.display = "block";
-        document.querySelectorAll(".presets input")[presetSlideIndex].focus();
+        // document.querySelectorAll(".presets-slide")[presetSlideIndex].style.display = "none";
+        // increaseSlide ? presetSlideIndex++ : "";
+        // document.querySelectorAll(".presets-slide")[presetSlideIndex].style.display = "block";
+        // document.querySelectorAll(".presets input")[presetSlideIndex].focus();
     });
 });
 
@@ -54,12 +54,14 @@ document.querySelector(".workout-time-btn").addEventListener("click", () => {
     workoutTime = document.querySelector(".workout-time-amount").value;
     workoutTime = parseInt(workoutTime);
     if (workoutTime < 30 || workoutTime > 60) {
+        console.log(parseInt(workoutTime));
         alert("Enter a between 30 and 60");
         document.querySelectorAll(".presets-slide")[0].style.display = "block";
         document.querySelectorAll(".presets-slide")[1].style.display = "none";
         increaseSlide ? presetSlideIndex : "";
         increaseSlide = false;
     } else if (!Number.isInteger(parseInt(workoutTime))) {
+        console.log(parseInt(workoutTime));
         alert("Type in a real number");
         document.querySelectorAll(".presets-slide")[0].style.display = "block";
         document.querySelectorAll(".presets-slide")[1].style.display = "none";
@@ -69,6 +71,12 @@ document.querySelector(".workout-time-btn").addEventListener("click", () => {
         document.querySelectorAll(".presets-slide")[0].style.display = "none";
         document.querySelectorAll(".presets-slide")[1].style.display = "block";
         increaseSlide = true;
+    }
+    if (increaseSlide) {
+        document.querySelectorAll(".presets-slide")[0].style.display = "none";
+        document.querySelectorAll(".presets-slide")[1].style.display = "block";
+        document.querySelectorAll(".presets input")[1].focus();
+        presetSlideIndex++;
     }
 });
 
@@ -83,6 +91,7 @@ document.querySelector(".rest-time-btn").addEventListener("click", () => {
         increaseSlide = false;
     } else if (!Number.isInteger(parseInt(restTime))) {
         alert("Type in a real number");
+        console.log(parseInt(workoutTime));
         document.querySelectorAll(".presets-slide")[1].style.display = "block";
         document.querySelectorAll(".presets-slide")[2].style.display = "none";
         increaseSlide ? presetSlideIndex : "";
@@ -91,6 +100,12 @@ document.querySelector(".rest-time-btn").addEventListener("click", () => {
         document.querySelectorAll(".presets-slide")[1].style.display = "none";
         document.querySelectorAll(".presets-slide")[2].style.display = "block";
         increaseSlide = true;
+    }
+    if (increaseSlide) {
+        document.querySelectorAll(".presets-slide")[1].style.display = "none";
+        document.querySelectorAll(".presets-slide")[2].style.display = "block";
+        document.querySelectorAll(".presets input")[2].focus();
+        presetSlideIndex++;
     }
 });
 
@@ -138,5 +153,10 @@ document.querySelector(".submit-amount").addEventListener("click", () => {
                 submitWorkouts();
             }
         });
+    }
+    if (increaseSlide) {
+        document.querySelectorAll(".presets-slide")[2].style.display = "none";
+        document.querySelectorAll(".presets-slide")[3].style.display = "block";
+        presetSlideIndex++;
     }
 });
