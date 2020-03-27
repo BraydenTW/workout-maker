@@ -1,5 +1,5 @@
 body {
-  font-family: "Rubik";
+  font-family: "Open Sans";
   width: 100vw;
   height: 100vh;
   margin: 0;
@@ -8,7 +8,7 @@ body {
 }
 
 input {
-  font-family: "Rubik";
+  font-family: "Open Sans";
   padding: 10px 5px;
 }
 
@@ -19,8 +19,8 @@ button {
   color: black;
   text-align: center;
   background: white;
-  -webkit-box-shadow: inset 4px 4px #b073ff, 1px 1px white, 3px 3px #52ffcb, 4px 4px white, 6px 6px #58aeff, 6px 6px 10px #58aeff;
-          box-shadow: inset 4px 4px #b073ff, 1px 1px white, 3px 3px #52ffcb, 4px 4px white, 6px 6px #58aeff, 6px 6px 10px #58aeff;
+  -webkit-box-shadow: inset 4px 4px #b073ff, 1px 1px white, 3px 3px #36ffbc, 4px 4px white, 6px 6px #58aeff, 6px 6px 10px #58aeff;
+          box-shadow: inset 4px 4px #b073ff, 1px 1px white, 3px 3px #36ffbc, 4px 4px white, 6px 6px #58aeff, 6px 6px 10px #58aeff;
   cursor: pointer;
   -webkit-transition: -webkit-box-shadow 0.6s;
   transition: -webkit-box-shadow 0.6s;
@@ -47,7 +47,7 @@ button:hover {
 }
 
 .submit-workouts {
-  font-family: "Rubik";
+  font-family: "Open Sans";
   border-radius: 40px;
   padding: 8px 20px 10px;
 }
@@ -61,8 +61,8 @@ button:hover {
   outline: none;
   background: white;
   color: #666;
-  -webkit-box-shadow: inset 4px 4px #ffe134, 1px 1px white, 3px 3px #ff5252, 4px 4px white, 6px 6px #ff9b58, 6px 6px 10px #ff9b58;
-          box-shadow: inset 4px 4px #ffe134, 1px 1px white, 3px 3px #ff5252, 4px 4px white, 6px 6px #ff9b58, 6px 6px 10px #ff9b58;
+  -webkit-box-shadow: inset 4px 4px #ff5db6, 1px 1px white, 3px 3px #ff2a2a, 4px 4px white, 6px 6px #ff7755, 6px 6px 10px #ff7755;
+          box-shadow: inset 4px 4px #ff5db6, 1px 1px white, 3px 3px #ff2a2a, 4px 4px white, 6px 6px #ff7755, 6px 6px 10px #ff7755;
   margin: 0px 8px;
   -webkit-transition: -webkit-box-shadow 0.6s;
   transition: -webkit-box-shadow 0.6s;
@@ -105,9 +105,9 @@ button:hover {
   outline: none;
   padding: 10px 20px;
   background: white;
-  color: #666;
-  -webkit-box-shadow: inset 4px 4px #ffe134, 1px 1px white, 3px 3px #ff5252, 4px 4px white, 6px 6px #ff9b58, 6px 6px 10px #ff9b58;
-          box-shadow: inset 4px 4px #ffe134, 1px 1px white, 3px 3px #ff5252, 4px 4px white, 6px 6px #ff9b58, 6px 6px 10px #ff9b58;
+  color: #000;
+  -webkit-box-shadow: inset 4px 4px #ff5db6, 1px 1px white, 3px 3px #ff2a2a, 4px 4px white, 6px 6px #ff7755, 6px 6px 10px #ff7755;
+          box-shadow: inset 4px 4px #ff5db6, 1px 1px white, 3px 3px #ff2a2a, 4px 4px white, 6px 6px #ff7755, 6px 6px 10px #ff7755;
   -webkit-transition: -webkit-box-shadow 0.6s;
   transition: -webkit-box-shadow 0.6s;
   transition: box-shadow 0.6s;
@@ -174,7 +174,7 @@ button:hover {
   font-size: 2em;
   font-weight: 300;
   padding: 20px 0px;
-  font-family: "Rubik";
+  font-family: "Open Sans";
   color: black;
   width: 100%;
 }
