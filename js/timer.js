@@ -112,7 +112,8 @@ function startWorkout() {
             if (countdown === 0) {
                 setTimeout(() => {
                     clearInterval(timeInterval);
-                    if (currentWorkoutIndex === workoutSequence.length) {
+                    if (currentWorkoutIndex === workoutSequence.length - 1) {
+                        alert("done")
                     } else {
                         currentWorkoutIndex++;
                         readyTime = 6000;

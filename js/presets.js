@@ -73,21 +73,10 @@ document.querySelectorAll(".number-input").forEach(item => {
     });
 })
 
-document.querySelectorAll(".next-button").forEach(item => {
-    item.addEventListener("click", () => {
-        // document.querySelectorAll(".presets-slide")[presetSlideIndex].style.display = "none";
-        // increaseSlide ? presetSlideIndex++ : "";
-        // document.querySelectorAll(".presets-slide")[presetSlideIndex].style.display = "block";
-        // document.querySelectorAll(".presets input")[presetSlideIndex].focus();
-    });
-});
-
-
-
 document.querySelector(".workout-time-btn").addEventListener("click", () => {
     workoutTime = document.querySelector(".workout-time-amount").value;
     workoutTime = parseInt(workoutTime);
-    if (workoutTime < 1 || workoutTime > 60) {
+    if (workoutTime < 30 || workoutTime > 60) {
         console.log(parseInt(workoutTime));
         alert("Enter a between 30 and 60");
         document.querySelectorAll(".presets-slide")[0].style.display = "block";
@@ -117,7 +106,7 @@ document.querySelector(".workout-time-btn").addEventListener("click", () => {
 document.querySelector(".rest-time-btn").addEventListener("click", () => {
     restTime = document.querySelector(".rest-time-amount").value;
     restTime = parseInt(restTime);
-    if (restTime < 1 || restTime > 30) {
+    if (restTime < 15 || restTime > 30) {
         alert("Enter a between 15 and 30");
         document.querySelectorAll(".presets-slide")[1].style.display = "block";
         document.querySelectorAll(".presets-slide")[2].style.display = "none";
@@ -145,8 +134,8 @@ document.querySelector(".rest-time-btn").addEventListener("click", () => {
 
 document.querySelector(".submit-amount").addEventListener("click", () => {
     exerciseLength = document.querySelector(".exercise-amount").value;
-    if (exerciseLength < 5 || exerciseLength > 10) {
-        alert("Enter a between 5 and 10");
+    if (exerciseLength < 3 || exerciseLength > 10) {
+        alert("Enter a between 3 and 10");
         document.querySelectorAll(".presets-slide")[2].style.display = "block";
         document.querySelectorAll(".presets-slide")[3].style.display = "none";
         increaseSlide ? presetSlideIndex : "";
