@@ -22,8 +22,8 @@ function submitWorkouts() {
     if (checkCount === parseInt(exerciseLength)) {
         document.querySelector(".presets").style.display = "none";
         document.querySelector(".workout-section").style.display = "block";
-        
-        document.querySelector(".current-title").innerHTML = "Get ready <br> for " + workoutList[0];
+        document.querySelector(".workout-specific").textContent = "Exercise #1 " + workoutList[0];
+        document.querySelector(".current-title").innerHTML = "Get ready";
         document.querySelector(".current-time").textContent = "10";
         setTimeout(() => {
             document.querySelector(".current-time").textContent = "9";
@@ -76,9 +76,9 @@ document.querySelectorAll(".number-input").forEach(item => {
 document.querySelector(".workout-time-btn").addEventListener("click", () => {
     workoutTime = document.querySelector(".workout-time-amount").value;
     workoutTime = parseInt(workoutTime);
-    if (workoutTime < 30 || workoutTime > 60) {
+    if (workoutTime < 15 || workoutTime > 60) {
         console.log(parseInt(workoutTime));
-        alert("Enter a between 30 and 60");
+        alert("Enter a between 15 and 60");
         document.querySelectorAll(".presets-slide")[0].style.display = "block";
         document.querySelectorAll(".presets-slide")[1].style.display = "none";
         increaseSlide ? presetSlideIndex : "";
