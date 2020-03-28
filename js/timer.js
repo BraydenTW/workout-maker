@@ -13,6 +13,8 @@ let readyTime = 10000;
 
 let currentWorkoutIndex = 0;
 
+const ogWorkout = workoutList;
+
 const TIMER_SOUND = document.createElement("AUDIO");
 TIMER_SOUND.setAttribute("class", "timer-alert");
 TIMER_SOUND.setAttribute("src", "../audio/timerDone.mp3");
@@ -65,10 +67,10 @@ function setupSequence() {
 
 function startWorkout() {
     // console.log(workoutSequence[currentWorkoutIndex]);
-    if (currentWorkoutIndex != 0 && workoutSequence[currentWorkoutIndex] != "Rest") {
+    if (currentWorkoutIndex != 0 && workoutSequence[currentWorkoutIndex] != "Rest" && workoutSequence[currentWorkoutIndex - 1] != "Rest") {
         console.log(currentWorkoutIndex)
         console.log(workoutSequence[currentWorkoutIndex])
-        document.querySelector(".current-title").innerHTML = "Get ready <br> for " + workoutSequence[currentWorkoutIndex];
+        document.querySelector(".current-title").innerHTML = "Get ready";
         document.querySelector(".current-time").textContent = "5";
         setTimeout(() => {
             document.querySelector(".current-time").textContent = "4";
@@ -97,6 +99,34 @@ function startWorkout() {
         }
     
         document.querySelector(".current-title").textContent = workoutSequence[currentWorkoutIndex];
+
+        if (workoutSequence[currentWorkoutIndex + 1] === "Rest") {
+            document.querySelector(".workout-specific").textContent = "Rest";
+        } else {
+            let workoutNum = 0;
+            switch ((ogWorkout.indexOf(workoutSequence[currentWorkoutIndex + 1]) + 1)) {
+                case 5:
+                    workoutNum = 1;
+                    break;
+
+                case 4:
+                    workoutNum = 2;
+                    break;
+                        
+                case 3:
+                    workoutNum = 3;
+                    break;
+                    
+                case 2:
+                    workoutNum = 4;
+                    break;
+                    
+                case 1:
+                    workoutNum = 5;
+                    break;
+            }
+            document.querySelector(".workout-specific").textContent = "Exercise #" + workoutNum + " " + workoutSequence[currentWorkoutIndex + 1];
+        }
         // console.log(document.querySelector(".current-title").textContent);
         if (document.querySelector(".current-title").textContent === "Rest") {
             countdown = restTime;
