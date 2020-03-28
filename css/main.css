@@ -179,6 +179,16 @@ button:hover {
   width: 100%;
 }
 
+.workout-next {
+  position: absolute;
+  font-size: 1.2em;
+  font-weight: 400;
+}
+
+.workout-specific {
+  font-weight: 900;
+}
+
 .workout-section {
   display: none;
   text-align: center;
