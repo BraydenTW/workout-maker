@@ -68,8 +68,6 @@ function setupSequence() {
 function startWorkout() {
     // console.log(workoutSequence[currentWorkoutIndex]);
     if (currentWorkoutIndex != 0 && workoutSequence[currentWorkoutIndex] != "Rest" && workoutSequence[currentWorkoutIndex - 1] != "Rest") {
-        console.log(currentWorkoutIndex)
-        console.log(workoutSequence[currentWorkoutIndex])
         document.querySelector(".current-title").innerHTML = "Get ready";
         document.querySelector(".current-time").textContent = "5";
         setTimeout(() => {
@@ -87,11 +85,13 @@ function startWorkout() {
         setTimeout(() => {
             document.querySelector(".current-time").textContent = "0";
         }, 5000);
-        playAlarmSound();
+        setTimeout(() => {
+            playAlarmSound();
+        }, 6000);
     } else {
         readyTime = 0;
-        playAlarmSound();
     }
+    playAlarmSound();
     // Update page
     setTimeout(() => {
         if (currentWorkoutIndex === workoutSequence.length) {
@@ -104,6 +104,14 @@ function startWorkout() {
             document.querySelector(".workout-specific").textContent = "Rest";
         } else {
             let workoutNum = 0;
+            let workoutNumBefore = ogWorkout.indexOf(workoutSequence[currentWorkoutIndex + 1]) + 1;
+            let numArray = [];
+            for (let i = 0; i < workoutList.length; i++) {
+                numArray.push(i + 1);
+            }
+            console.log(numArray);
+            workoutNum = numArray.reverse()[workoutNumBefore - 1];
+            console.log(workoutNum)
             switch ((ogWorkout.indexOf(workoutSequence[currentWorkoutIndex + 1]) + 1)) {
                 case 5:
                     workoutNum = 1;
