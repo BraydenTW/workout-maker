@@ -76,7 +76,7 @@ document.querySelectorAll(".number-input").forEach(item => {
 document.querySelector(".workout-time-btn").addEventListener("click", () => {
     workoutTime = document.querySelector(".workout-time-amount").value;
     workoutTime = parseInt(workoutTime);
-    if (workoutTime < 15 || workoutTime > 60) {
+    if (workoutTime < 1 || workoutTime > 60) {
         console.log(parseInt(workoutTime));
         alert("Enter a between 15 and 60");
         document.querySelectorAll(".presets-slide")[0].style.display = "block";
@@ -106,7 +106,7 @@ document.querySelector(".workout-time-btn").addEventListener("click", () => {
 document.querySelector(".rest-time-btn").addEventListener("click", () => {
     restTime = document.querySelector(".rest-time-amount").value;
     restTime = parseInt(restTime);
-    if (restTime < 15 || restTime > 30) {
+    if (restTime < 1 || restTime > 30) {
         alert("Enter a between 15 and 30");
         document.querySelectorAll(".presets-slide")[1].style.display = "block";
         document.querySelectorAll(".presets-slide")[2].style.display = "none";
